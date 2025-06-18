@@ -1,165 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>ModaViva | Ropa y Tendencias</title>
-  <meta name="description" content="ModaViva: Tu tienda online de ropa y moda. Encuentra las últimas tendencias en prendas para mujer, hombre y accesorios.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilos.css">
-  <style>
-    /* Estilos internos rápidos para que sea visible de inmediato */
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #fff;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaViva | Ropa y Tendencias</title>
+    <meta name="description" content="ModaViva: Tu tienda online de ropa y moda. Encuentra las últimas tendencias en prendas para mujer, hombre y accesorios.">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Heroicons for extra flair -->
+    <script src="https://unpkg.com/heroicons/24/outline/dist/heroicons.js"></script>
 
-    header {
-      background: linear-gradient(to right, #f72585, #7209b7);
-      padding: 1rem;
-      color: white;
-      text-align: center;
-    }
+    <script>
+        // Custom Tailwind CSS configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#7209b7',
+                        'secondary': '#3a0ca3',
+                        'accent': '#f72585',
+                        'highlight': '#ffb703',
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      background-color: #3a0ca3;
-      padding: 1rem 0;
-    }
+    <style>
+        /* A little bit of custom CSS for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffb703;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .banner {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .grid img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    h2 {
-      color: #560bad;
-    }
-
-    footer {
-      background-color: #3a0ca3;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-    }
-
-    footer a {
-      color: #ffb703;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 font-sans">
 
-<header>
-  <h1>ModaViva</h1>
-  <p>Ropa y moda para cada estilo de vida</p>
-</header>
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-accent to-primary text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight">ModaViva</h1>
+            <p class="mt-2 text-lg md:text-xl opacity-90">Ropa y moda para cada estilo de vida</p>
+        </div>
+    </header>
 
-<nav>
-  <a href="#">Inicio</a>
-  <a href="#">Productos</a>
-  <a href="#">Novedades</a>
-  <a href="#">Ofertas</a>
-  <a href="#">Blog</a>
-  <a href="#">Nosotros</a>
-  <a href="#">Contacto</a>
-</nav>
+    <!-- Navigation Bar -->
+    <nav class="bg-secondary sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center py-3 space-x-4 md:space-x-8 overflow-x-auto">
+                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Inicio</a>
+                <a href="#productos" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Productos</a>
+                <a href="#novedades" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Novedades</a>
+                <a href="#ofertas" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Ofertas</a>
+                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Blog</a>
+                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Nosotros</a>
+                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Contacto</a>
+            </div>
+        </div>
+    </nav>
 
-<main>
-  <img src="https://via.placeholder.com/1000x400?text=Banner+Moda+Viva" alt="Moda Viva Banner" class="banner">
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
 
-  <section>
-    <h2>Bienvenido a ModaViva</h2>
-    <p>
-      En <strong>ModaViva</strong>, nos apasiona ofrecerte lo último en <em>tendencias de moda</em>. Descubre nuestra amplia colección de ropa para mujer y hombre, diseñada para cada ocasión. Ya sea que busques un look casual, formal o de temporada, aquí encontrarás inspiración y estilo.
-    </p>
-    <p>
-      La moda es más que ropa: es una expresión de tu identidad. Por eso, en ModaViva trabajamos con diseñadores comprometidos, materiales sostenibles y colecciones exclusivas. Estamos comprometidos con la <strong>moda ética y responsable</strong>, sin comprometer el diseño ni la comodidad.
-    </p>
-    <p>
-      Nuestro catálogo incluye vestidos, pantalones, camisetas, abrigos, trajes, blusas y accesorios. Cada prenda está seleccionada cuidadosamente para combinar calidad, tendencia y precio justo. Además, renovamos nuestras colecciones cada semana, para que siempre estés a la vanguardia.
-    </p>
-  </section>
+        <!-- Hero Banner -->
+        <section id="novedades" class="mb-16">
+            <img src="https://placehold.co/1200x500/f72585/ffffff?text=Colección+Primavera" 
+                 alt="Banner de la nueva colección de ModaViva" 
+                 class="w-full h-auto object-cover rounded-lg shadow-xl">
+        </section>
 
-  <section class="grid">
-    <img src="https://via.placeholder.com/300x400?text=Vestido+Verano" alt="Vestido de verano">
-    <img src="https://via.placeholder.com/300x400?text=Moda+Urbana" alt="Moda urbana">
-    <img src="https://via.placeholder.com/300x400?text=Accesorios" alt="Accesorios de moda">
-    <img src="https://via.placeholder.com/300x400?text=Ropa+Sostenible" alt="Ropa ecológica">
-  </section>
+        <!-- Welcome Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-primary mb-4">Bienvenido a ModaViva</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+                En <strong>ModaViva</strong>, nos apasiona ofrecerte lo último en <em>tendencias de moda</em>. Descubre nuestra amplia colección de ropa para mujer y hombre, diseñada para cada ocasión. Estamos comprometidos con la <strong>moda ética y responsable</strong>, sin comprometer el diseño ni la comodidad.
+            </p>
+        </section>
 
-  <section>
-    <h2>Moda que se adapta a ti</h2>
-    <p>
-      Nos diferenciamos por nuestro enfoque personalizado. Filtra por talla, color, tejido o estilo y encuentra lo que más se adapta a tu cuerpo y personalidad. La moda ya no es una talla única: es inclusiva, diversa y auténtica.
-    </p>
-    <p>
-      Nuestro blog de moda te mantiene informado sobre las últimas pasarelas, consejos de estilo, ideas para combinar prendas y entrevistas con diseñadores. Además, publicamos guías de tendencias, lookbooks de temporada y consejos para el cuidado de la ropa.
-    </p>
-    <p>
-      ¿Buscas promociones? Visita nuestra sección de ofertas para aprovechar descuentos exclusivos en prendas seleccionadas. También ofrecemos envíos gratuitos en pedidos superiores a 50€ y cambios sin coste adicional.
-    </p>
-  </section>
+        <!-- Product Grid -->
+        <section id="productos" class="mb-16">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Nuestros Favoritos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x500/7209b7/ffffff?text=Vestido+Elegante" alt="Vestido de verano elegante" class="w-full h-auto object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg">Vestido Verano</h3>
+                        <p class="text-gray-500">Ideal para días soleados</p>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x500/3a0ca3/ffffff?text=Estilo+Urbano" alt="Conjunto de moda urbana" class="w-full h-auto object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg">Moda Urbana</h3>
+                        <p class="text-gray-500">Comodidad y estilo</p>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x500/560bad/ffffff?text=Accesorios" alt="Accesorios de moda variados" class="w-full h-auto object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg">Accesorios</h3>
+                        <p class="text-gray-500">El toque final perfecto</p>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x500/f72585/ffffff?text=Ropa+Sostenible" alt="Prenda de ropa sostenible" class="w-full h-auto object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg">Línea Sostenible</h3>
+                        <p class="text-gray-500">Moda con conciencia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section>
-    <h2>Tu tienda de ropa en línea</h2>
-    <p>
-      Comprar ropa en línea nunca ha sido tan fácil. Con ModaViva, puedes navegar cómodamente desde casa, seleccionar tus artículos favoritos, pagar de forma segura y recibir tu pedido en pocos días. Contamos con soporte al cliente en tiempo real para ayudarte en todo momento.
-    </p>
-    <p>
-      Nos posicionamos como una de las tiendas de moda más buscadas gracias a nuestra experiencia de usuario, catálogo actualizado y compromiso con el cliente. Si buscas una tienda de moda confiable, moderna y creativa, ¡has llegado al lugar indicado!
-    </p>
-  </section>
-</main>
+        <!-- Features Section -->
+        <section id="ofertas" class="bg-gray-100 rounded-lg p-8 md:p-12 mb-16">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Moda que se adapta a ti</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+                    <h3 class="font-bold text-xl mb-2">Inclusividad</h3>
+                    <p class="text-gray-600">Filtra por talla, color y estilo. Encuentra prendas que te representen de verdad.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <h3 class="font-bold text-xl mb-2">Blog de Tendencias</h3>
+                    <p class="text-gray-600">Mantente al día con consejos de estilo, guías de temporada y entrevistas exclusivas.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                     <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <h3 class="font-bold text-xl mb-2">Ofertas Exclusivas</h3>
+                    <p class="text-gray-600">Envíos gratis en pedidos superiores a 50€ y descuentos especiales cada semana.</p>
+                </div>
+            </div>
+        </section>
 
-<footer>
-  <p>&copy; 2025 ModaViva - Todos los derechos reservados</p>
-  <p>
-    <a href="#">Aviso legal</a> | 
-    <a href="#">Política de privacidad</a> | 
-    <a href="#">Condiciones de uso</a>
-  </p>
-</footer>
+        <!-- Call to Action -->
+        <section class="text-center">
+             <h2 class="text-3xl font-bold text-primary mb-4">¿Lista para renovar tu armario?</h2>
+             <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
+                 Comprar ropa en línea nunca ha sido tan fácil y seguro. Navega por nuestro catálogo y descubre tu próximo look favorito.
+             </p>
+             <a href="#productos" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-all duration-300 transform hover:scale-110 inline-block shadow-lg">
+                 Explorar Colección
+             </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="font-semibold text-lg mb-2">ModaViva &copy; 2025</p>
+            <p class="mb-4">Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="hover:text-highlight transition-colors duration-300">Aviso legal</a>
+                <span>|</span>
+                <a href="#" class="hover:text-highlight transition-colors duration-300">Política de privacidad</a>
+                <span>|</span>
+                <a href="#" class="hover:text-highlight transition-colors duration-300">Condiciones de uso</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
