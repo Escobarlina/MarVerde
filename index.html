@@ -14,9 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Heroicons for extra flair -->
-    <script src="https://unpkg.com/heroicons/24/outline/dist/heroicons.js"></script>
-
     <script>
         // Custom Tailwind CSS configuration
         tailwind.config = {
@@ -37,9 +34,28 @@
     </script>
 
     <style>
-        /* A little bit of custom CSS for smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Hide all pages by default */
+        .page-content {
+            display: none;
+        }
+        /* Show the active page */
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Style for active nav link */
+        .nav-link.active {
+            color: #ffb703; /* highlight color */
+            transform: scale(1.1);
+        }
+        /* Ensure images in product cards have a consistent height */
+        .product-card-img {
+            height: 500px;
+            object-fit: cover;
         }
     </style>
 
@@ -57,107 +73,203 @@
     <!-- Navigation Bar -->
     <nav class="bg-secondary sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4">
-            <div class="flex justify-center items-center py-3 space-x-4 md:space-x-8 overflow-x-auto">
-                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Inicio</a>
-                <a href="#productos" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Productos</a>
-                <a href="#novedades" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Novedades</a>
-                <a href="#ofertas" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Ofertas</a>
-                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Blog</a>
-                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Nosotros</a>
-                <a href="#" class="text-white font-medium hover:text-highlight transition-colors duration-300 whitespace-nowrap px-2 py-1">Contacto</a>
+            <div id="nav-links" class="flex justify-center items-center py-3 space-x-4 md:space-x-8 overflow-x-auto">
+                <a href="#" onclick="showPage('inicio')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Inicio</a>
+                <a href="#" onclick="showPage('productos')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Productos</a>
+                <a href="#" onclick="showPage('novedades')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Novedades</a>
+                <a href="#" onclick="showPage('ofertas')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Ofertas</a>
+                <a href="#" onclick="showPage('blog')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Blog</a>
+                <a href="#" onclick="showPage('nosotros')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Nosotros</a>
+                <a href="#" onclick="showPage('contacto')" class="nav-link text-white font-medium hover:text-highlight transition-all duration-300 whitespace-nowrap px-2 py-1">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content: Each section is a "page" -->
     <main class="container mx-auto px-6 py-12">
 
-        <!-- Hero Banner -->
-        <section id="novedades" class="mb-16">
-            <img src="https://placehold.co/1200x500/f72585/ffffff?text=Colección+Primavera" 
-                 alt="Banner de la nueva colección de ModaViva" 
-                 class="w-full h-auto object-cover rounded-lg shadow-xl">
-        </section>
+        <!-- Page: Inicio -->
+        <div id="page-inicio" class="page-content">
+            <section class="mb-16">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" 
+                     alt="[Imagen de una mujer con bolsas de la compra, representando la moda y el estilo]" 
+                     class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-xl"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x500/f72585/ffffff?text=Error+al+cargar+la+imagen';">
+            </section>
+            <section class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Bienvenido a ModaViva</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+                    En <strong>ModaViva</strong>, nos apasiona ofrecerte lo último en <em>tendencias de moda</em>. Descubre nuestra amplia colección de ropa para mujer y hombre, diseñada para cada ocasión. Estamos comprometidos con la <strong>moda ética y responsable</strong>, sin comprometer el diseño ni la comodidad.
+                </p>
+            </section>
+             <section class="text-center">
+                 <h2 class="text-3xl font-bold text-primary mb-4">¿Lista para renovar tu armario?</h2>
+                 <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
+                     Comprar ropa en línea nunca ha sido tan fácil y seguro. Navega por nuestro catálogo y descubre tu próximo look favorito.
+                 </p>
+                 <a href="#" onclick="showPage('productos')" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-all duration-300 transform hover:scale-110 inline-block shadow-lg">
+                     Explorar Colección
+                 </a>
+            </section>
+        </div>
 
-        <!-- Welcome Section -->
-        <section class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-primary mb-4">Bienvenido a ModaViva</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
-                En <strong>ModaViva</strong>, nos apasiona ofrecerte lo último en <em>tendencias de moda</em>. Descubre nuestra amplia colección de ropa para mujer y hombre, diseñada para cada ocasión. Estamos comprometidos con la <strong>moda ética y responsable</strong>, sin comprometer el diseño ni la comodidad.
-            </p>
-        </section>
-
-        <!-- Product Grid -->
-        <section id="productos" class="mb-16">
-            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Nuestros Favoritos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Product Card 1 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/400x500/7209b7/ffffff?text=Vestido+Elegante" alt="Vestido de verano elegante" class="w-full h-auto object-cover">
-                    <div class="p-4 text-center">
-                        <h3 class="font-semibold text-lg">Vestido Verano</h3>
-                        <p class="text-gray-500">Ideal para días soleados</p>
+        <!-- Page: Productos -->
+        <div id="page-productos" class="page-content">
+            <section>
+                <h2 class="text-3xl font-bold text-primary mb-8 text-center">Nuestra Colección</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=400&auto=format&fit=crop" alt="[Imagen de un vestido de verano elegante]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/7209b7/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Vestido Verano</h3>
+                            <p class="text-gray-500">Ideal para días soleados</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=400&auto=format&fit=crop" alt="[Imagen de una mujer con ropa de estilo urbano]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/3a0ca3/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Moda Urbana</h3>
+                            <p class="text-gray-500">Comodidad y estilo</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?q=80&w=400&auto=format&fit=crop" alt="[Imagen de accesorios de moda como gafas de sol y bolsos]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/560bad/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Accesorios</h3>
+                            <p class="text-gray-500">El toque final perfecto</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1593121925328-93639a633b43?q=80&w=400&auto=format&fit=crop" alt="[Imagen de ropa colgada en una percha, representando moda sostenible]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/f72585/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Línea Sostenible</h3>
+                            <p class="text-gray-500">Moda con conciencia</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Product Card 2 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/400x500/3a0ca3/ffffff?text=Estilo+Urbano" alt="Conjunto de moda urbana" class="w-full h-auto object-cover">
-                    <div class="p-4 text-center">
-                        <h3 class="font-semibold text-lg">Moda Urbana</h3>
-                        <p class="text-gray-500">Comodidad y estilo</p>
-                    </div>
-                </div>
-                <!-- Product Card 3 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/400x500/560bad/ffffff?text=Accesorios" alt="Accesorios de moda variados" class="w-full h-auto object-cover">
-                    <div class="p-4 text-center">
-                        <h3 class="font-semibold text-lg">Accesorios</h3>
-                        <p class="text-gray-500">El toque final perfecto</p>
-                    </div>
-                </div>
-                <!-- Product Card 4 -->
-                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/400x500/f72585/ffffff?text=Ropa+Sostenible" alt="Prenda de ropa sostenible" class="w-full h-auto object-cover">
-                    <div class="p-4 text-center">
-                        <h3 class="font-semibold text-lg">Línea Sostenible</h3>
-                        <p class="text-gray-500">Moda con conciencia</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <!-- Features Section -->
-        <section id="ofertas" class="bg-gray-100 rounded-lg p-8 md:p-12 mb-16">
-            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Moda que se adapta a ti</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="flex flex-col items-center">
-                    <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
-                    <h3 class="font-bold text-xl mb-2">Inclusividad</h3>
-                    <p class="text-gray-600">Filtra por talla, color y estilo. Encuentra prendas que te representen de verdad.</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
-                    <h3 class="font-bold text-xl mb-2">Blog de Tendencias</h3>
-                    <p class="text-gray-600">Mantente al día con consejos de estilo, guías de temporada y entrevistas exclusivas.</p>
-                </div>
-                <div class="flex flex-col items-center">
-                     <svg class="w-12 h-12 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <h3 class="font-bold text-xl mb-2">Ofertas Exclusivas</h3>
-                    <p class="text-gray-600">Envíos gratis en pedidos superiores a 50€ y descuentos especiales cada semana.</p>
-                </div>
-            </div>
-        </section>
+        <!-- Page: Novedades -->
+        <div id="page-novedades" class="page-content">
+             <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-8 text-center">Últimas Novedades</h2>
+                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1200&auto=format&fit=crop" 
+                     alt="[Imagen de un ambiente de compras de moda con ropa y accesorios]" 
+                     class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-xl"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x500/3a0ca3/ffffff?text=Error+al+cargar+la+imagen';">
+                 <p class="text-center mt-8 text-lg text-gray-600">Descubre las prendas que acaban de llegar. ¡Las tendencias más frescas de la temporada te esperan!</p>
+            </section>
+        </div>
 
-        <!-- Call to Action -->
-        <section class="text-center">
-             <h2 class="text-3xl font-bold text-primary mb-4">¿Lista para renovar tu armario?</h2>
-             <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
-                 Comprar ropa en línea nunca ha sido tan fácil y seguro. Navega por nuestro catálogo y descubre tu próximo look favorito.
-             </p>
-             <a href="#productos" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-all duration-300 transform hover:scale-110 inline-block shadow-lg">
-                 Explorar Colección
-             </a>
-        </section>
+        <!-- Page: Ofertas -->
+        <div id="page-ofertas" class="page-content">
+            <section class="mb-12">
+                 <div class="bg-gradient-to-r from-yellow-300 via-highlight to-yellow-500 text-primary p-8 rounded-lg shadow-lg text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">REBAJAS DE VERANO</h2>
+                    <p class="mt-2 text-xl font-medium">¡Hasta un 40% de descuento en artículos seleccionados!</p>
+                </div>
+            </section>
+            
+            <section>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Offer Card 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 relative">
+                         <div class="absolute top-0 right-0 bg-accent text-white text-sm font-bold px-3 py-1 m-2 rounded-full z-10">-25%</div>
+                        <img src="https://images.unsplash.com/photo-1579362359489-7f5a9c19696b?q=80&w=400&auto=format&fit=crop" alt="[Imagen de una blusa floral]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/f87171/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Blusa Floral</h3>
+                            <div class="flex justify-center items-center mt-2 space-x-2">
+                                <p class="text-gray-500 line-through text-lg">40,00€</p>
+                                <p class="text-red-600 font-bold text-xl">30,00€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer Card 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 relative">
+                        <div class="absolute top-0 right-0 bg-accent text-white text-sm font-bold px-3 py-1 m-2 rounded-full z-10">-40%</div>
+                        <img src="https://images.unsplash.com/photo-1541089404513-595b2c701828?q=80&w=400&auto=format&fit=crop" alt="[Imagen de unos pantalones vaqueros modernos]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/60a5fa/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Vaqueros Skinny</h3>
+                             <div class="flex justify-center items-center mt-2 space-x-2">
+                                <p class="text-gray-500 line-through text-lg">65,00€</p>
+                                <p class="text-red-600 font-bold text-xl">39,00€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer Card 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 relative">
+                        <div class="absolute top-0 right-0 bg-accent text-white text-sm font-bold px-3 py-1 m-2 rounded-full z-10">-30%</div>
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6d5d53355?q=80&w=400&auto=format&fit=crop" alt="[Imagen de una sudadera con capucha de color gris]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a78bfa/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Sudadera Casual</h3>
+                             <div class="flex justify-center items-center mt-2 space-x-2">
+                                <p class="text-gray-500 line-through text-lg">50,00€</p>
+                                <p class="text-red-600 font-bold text-xl">35,00€</p>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Offer Card 4 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 relative">
+                        <div class="absolute top-0 right-0 bg-accent text-white text-sm font-bold px-3 py-1 m-2 rounded-full z-10">-20%</div>
+                        <img src="https://images.unsplash.com/photo-1551803091-e2ab69291df8?q=80&w=400&auto=format&fit=crop" alt="[Imagen de un bolso de cuero marrón]" class="w-full product-card-img" onerror="this.onerror=null;this.src='https://placehold.co/400x500/fbbf24/ffffff?text=Error';">
+                        <div class="p-4 text-center">
+                            <h3 class="font-semibold text-lg">Bolso de Cuero</h3>
+                             <div class="flex justify-center items-center mt-2 space-x-2">
+                                <p class="text-gray-500 line-through text-lg">75,00€</p>
+                                <p class="text-red-600 font-bold text-xl">60,00€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Page: Blog -->
+        <div id="page-blog" class="page-content">
+             <section class="text-center">
+                <h2 class="text-3xl font-bold text-primary mb-4">Nuestro Blog de Moda</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+                    Aquí encontrarás las últimas tendencias, consejos de estilismo y entrevistas con diseñadores. ¡Próximamente!
+                </p>
+            </section>
+        </div>
+        
+        <!-- Page: Nosotros -->
+        <div id="page-nosotros" class="page-content">
+            <section class="text-center">
+                <h2 class="text-3xl font-bold text-primary mb-4">Nuestra Historia</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+                    ModaViva nació de un sueño: hacer que la moda de alta calidad, sostenible y con estilo fuera accesible para todos. Somos un equipo de apasionados por el diseño y la creatividad, comprometidos con ofrecerte una experiencia de compra única. Creemos que la ropa es una forma de expresión y queremos ayudarte a contar tu propia historia.
+                </p>
+            </section>
+        </div>
+        
+        <!-- Page: Contacto -->
+        <div id="page-contacto" class="page-content">
+             <section class="max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-primary mb-8 text-center">Ponte en Contacto</h2>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-all duration-300 transform hover:scale-110 inline-block shadow-lg">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+             </section>
+        </div>
 
     </main>
 
@@ -175,6 +287,40 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // JavaScript to handle page switching
+        function showPage(pageId) {
+            // Hide all page content
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            const activePage = document.getElementById('page-' + pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+            
+            // Update active state in navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick') === `showPage('${pageId}')`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to top of the page
+            window.scrollTo(0, 0);
+        }
+
+        // Show the 'inicio' page by default on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('inicio');
+        });
+    </script>
 
 </body>
 </html>
