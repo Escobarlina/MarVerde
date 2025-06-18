@@ -2,40 +2,164 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio | Mi Blog Personal</title>
+  <title>ModaViva | Ropa y Tendencias</title>
+  <meta name="description" content="ModaViva: Tu tienda online de ropa y moda. Encuentra las últimas tendencias en prendas para mujer, hombre y accesorios.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Estilos internos rápidos para que sea visible de inmediato */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #f72585, #7209b7);
+      padding: 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background-color: #3a0ca3;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffb703;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #560bad;
+    }
+
+    footer {
+      background-color: #3a0ca3;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #ffb703;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Bienvenido a Mi Blog</h1>
-  <p>Reflexiones, viajes y recursos personales</p>
+  <h1>ModaViva</h1>
+  <p>Ropa y moda para cada estilo de vida</p>
 </header>
 
+<nav>
+  <a href="#">Inicio</a>
+  <a href="#">Productos</a>
+  <a href="#">Novedades</a>
+  <a href="#">Ofertas</a>
+  <a href="#">Blog</a>
+  <a href="#">Nosotros</a>
+  <a href="#">Contacto</a>
+</nav>
+
 <main>
+  <img src="https://via.placeholder.com/1000x400?text=Banner+Moda+Viva" alt="Moda Viva Banner" class="banner">
+
   <section>
-    <h2>Últimas Publicaciones</h2>
-    <ul>
-      <li><a href="post1.html">Cómo crear un blog con HTML y CSS</a> – 10 de junio de 2025</li>
-      <li><a href="post2.html">Consejos para escribir mejor</a> – 5 de junio de 2025</li>
-      <li><a href="post3.html">Viaje a la Patagonia</a> – 22 de mayo de 2025</li>
-    </ul>
+    <h2>Bienvenido a ModaViva</h2>
+    <p>
+      En <strong>ModaViva</strong>, nos apasiona ofrecerte lo último en <em>tendencias de moda</em>. Descubre nuestra amplia colección de ropa para mujer y hombre, diseñada para cada ocasión. Ya sea que busques un look casual, formal o de temporada, aquí encontrarás inspiración y estilo.
+    </p>
+    <p>
+      La moda es más que ropa: es una expresión de tu identidad. Por eso, en ModaViva trabajamos con diseñadores comprometidos, materiales sostenibles y colecciones exclusivas. Estamos comprometidos con la <strong>moda ética y responsable</strong>, sin comprometer el diseño ni la comodidad.
+    </p>
+    <p>
+      Nuestro catálogo incluye vestidos, pantalones, camisetas, abrigos, trajes, blusas y accesorios. Cada prenda está seleccionada cuidadosamente para combinar calidad, tendencia y precio justo. Además, renovamos nuestras colecciones cada semana, para que siempre estés a la vanguardia.
+    </p>
+  </section>
+
+  <section class="grid">
+    <img src="https://via.placeholder.com/300x400?text=Vestido+Verano" alt="Vestido de verano">
+    <img src="https://via.placeholder.com/300x400?text=Moda+Urbana" alt="Moda urbana">
+    <img src="https://via.placeholder.com/300x400?text=Accesorios" alt="Accesorios de moda">
+    <img src="https://via.placeholder.com/300x400?text=Ropa+Sostenible" alt="Ropa ecológica">
   </section>
 
   <section>
-    <h2>Explorar</h2>
-    <ul>
-      <li><a href="blog.html">📚 Ver archivo del blog</a></li>
-      <li><a href="sobre-mi.html">👤 Sobre mí</a></li>
-      <li><a href="contacto.html">📬 Contacto</a></li>
-    </ul>
+    <h2>Moda que se adapta a ti</h2>
+    <p>
+      Nos diferenciamos por nuestro enfoque personalizado. Filtra por talla, color, tejido o estilo y encuentra lo que más se adapta a tu cuerpo y personalidad. La moda ya no es una talla única: es inclusiva, diversa y auténtica.
+    </p>
+    <p>
+      Nuestro blog de moda te mantiene informado sobre las últimas pasarelas, consejos de estilo, ideas para combinar prendas y entrevistas con diseñadores. Además, publicamos guías de tendencias, lookbooks de temporada y consejos para el cuidado de la ropa.
+    </p>
+    <p>
+      ¿Buscas promociones? Visita nuestra sección de ofertas para aprovechar descuentos exclusivos en prendas seleccionadas. También ofrecemos envíos gratuitos en pedidos superiores a 50€ y cambios sin coste adicional.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tu tienda de ropa en línea</h2>
+    <p>
+      Comprar ropa en línea nunca ha sido tan fácil. Con ModaViva, puedes navegar cómodamente desde casa, seleccionar tus artículos favoritos, pagar de forma segura y recibir tu pedido en pocos días. Contamos con soporte al cliente en tiempo real para ayudarte en todo momento.
+    </p>
+    <p>
+      Nos posicionamos como una de las tiendas de moda más buscadas gracias a nuestra experiencia de usuario, catálogo actualizado y compromiso con el cliente. Si buscas una tienda de moda confiable, moderna y creativa, ¡has llegado al lugar indicado!
+    </p>
   </section>
 </main>
 
 <footer>
-  &copy; 2025 Mi Blog Personal. Todos los derechos reservados.
+  <p>&copy; 2025 ModaViva - Todos los derechos reservados</p>
+  <p>
+    <a href="#">Aviso legal</a> | 
+    <a href="#">Política de privacidad</a> | 
+    <a href="#">Condiciones de uso</a>
+  </p>
 </footer>
 
 </body>
 </html>
-
