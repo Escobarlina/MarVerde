@@ -1,0 +1,9 @@
+# robots.txt para ModaViva
+# Permite a todos los robots rastrear todo el sitio web para una máxima visibilidad.
+
+User-agent: *
+Allow: /
+
+# Ubicación del Sitemap para ayudar a los robots a encontrar todas las páginas importantes.
+# Asegúrate de reemplazar "https://www.modaviva.com" con tu dominio real.
+Sitemap: https://github.com/Escobarlina/MarVerde/sitemap.xml
