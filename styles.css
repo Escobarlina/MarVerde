@@ -1,1 +1,64 @@
+/*
+ * styles.css
+ * Hoja de estilos personalizada para el sitio web ModaViva.
+ * Estos estilos complementan las utilidades de Tailwind CSS.
+ */
+
+/* --- Animación y Visibilidad de Páginas --- */
+
+/**
+ * Oculta todas las secciones de página por defecto.
+ * La visibilidad se gestionará a través de JavaScript añadiendo la clase 'active'.
+ */
+.page-content {
+    display: none;
+}
+
+/**
+ * Muestra la sección de página que está activa.
+ * Aplica una animación de fundido (fade-in) para una transición suave.
+ */
+.page-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/**
+ * Define la animación 'fadeIn'.
+ * La página transiciona de totalmente transparente a completamente opaca.
+ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* --- Estilos de Navegación --- */
+
+/**
+ * Estilo para el enlace de navegación activo.
+ * Cambia el color al tono de realce ('highlight') y aumenta ligeramente su tamaño
+ * para dar una clara indicación visual de la página actual.
+ */
+.nav-link.active {
+    color: #ffb703; /* Corresponde al color 'highlight' en la configuración de Tailwind */
+    transform: scale(1.1);
+}
+
+
+/* --- Estilos de Tarjetas de Producto --- */
+
+/**
+ * Asegura que todas las imágenes en las tarjetas de producto tengan una altura consistente.
+ * 'object-fit: cover' evita que la imagen se deforme, recortándola para que se ajuste
+ * al contenedor.
+ */
+.product-card-img {
+    height: 500px;
+    object-fit: cover;
+}
 
