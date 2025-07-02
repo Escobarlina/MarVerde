@@ -1,0 +1,24 @@
+{
+  "name": "ModaViva | Ropa y Tendencias",
+  "short_name": "ModaViva",
+  "description": "ModaViva: Tu tienda online de ropa y moda. Encuentra las últimas tendencias en prendas para mujer, hombre y accesorios.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7209b7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://placehold.co/192x192/7209b7/ffffff?text=MV",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://placehold.co/512x512/7209b7/ffffff?text=MV",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
